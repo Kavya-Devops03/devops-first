@@ -1,9 +1,7 @@
 # Node Base Image
-FROM microsoft/iis
+FROM httpd:2.4
 
 #Install the dependecies
-RUN powershell -Noprofile -Command Remove-Item -Recurse C:\kavya\wwwroot\*
-WORKDIR /kavya/wwwroot
-COPY index.html .
+COPY index.html /usr/local/apache2/htdocs/
 
 #EXPOSE 9000
