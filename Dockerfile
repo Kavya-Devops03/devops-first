@@ -1,16 +1,9 @@
 # Node Base Image
-FROM node:12.2.0-alpine
-
-#Working Directry
-WORKDIR /node
-
-#Copy the Code
-COPY . .
+FROM microsoft/iis
 
 #Install the dependecies
-#RUN npm install
-#RUN npm run test
-EXPOSE 9000
+RUN powershell -Noprofile -Command Remove-Item -Recurse C:\kavya\wwwroot\*
+WORKDIR /kavya/wwwroot
+COPY index.html .
 
-#Run the code
-#CMD ["node","app.js"]
+#EXPOSE 9000
